@@ -37,7 +37,7 @@ pnpm webhook:build
 
 ### Demo custom tools server
 
-Mock API backing [demo.thothsupport.dev](https://demo.thothsupport.dev/) — pizza menu, orders, subscriptions, licenses, accounts, and an action tool (`cancel_order`) for testing staff approval. See [`apps/demo-custom-tools-server/README.md`](apps/demo-custom-tools-server/README.md).
+Mock API backing [demo.thothsupport.dev](https://demo.thothsupport.dev/) — pizza menu, orders, subscriptions, licenses, accounts, and action tools (`create_order`, `cancel_order`) for testing staff approval. See [`apps/demo-custom-tools-server/README.md`](apps/demo-custom-tools-server/README.md).
 
 ```bash
 cp apps/demo-custom-tools-server/.env.example apps/demo-custom-tools-server/.env

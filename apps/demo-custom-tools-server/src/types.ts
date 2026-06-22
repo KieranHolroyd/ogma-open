@@ -31,6 +31,7 @@ export type Order = {
 	customerName: string;
 	items: string[];
 	total: number;
+	fulfillment?: 'collection' | 'delivery';
 	carrier?: string;
 	trackingNumber?: string;
 	eta?: string;

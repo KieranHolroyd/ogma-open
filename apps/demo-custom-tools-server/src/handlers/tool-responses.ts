@@ -1,7 +1,7 @@
 import { findAccount } from '../data/accounts.js';
 import { findLicense } from '../data/licenses.js';
 import { buildMenuResponse, filterMenuItems, MENU_ITEMS } from '../data/menu.js';
-import { cancelOrder, findOrder } from '../data/orders.js';
+import { cancelOrder, createOrder, findOrder } from '../data/orders.js';
 import { PROMOTIONS, STORE_INFO } from '../data/store.js';
 import { findSubscription } from '../data/subscriptions.js';
 import type { ThothWebhookPayload } from '@thothsupport/webhook';
@@ -133,12 +133,27 @@ function handleCancelOrder(args: Record<string, unknown>) {
 	return cancelOrder(orderId, reason);
 }
 
+function handleCreateOrder(args: Record<string, unknown>) {
+	const customerName = readStringArg(args, 'customerName');
+	const items = readStringArg(args, 'items');
+	if (!customerName || !items) {
+		return { error: 'customerName and items are required' };
+	}
+
+	return createOrder({
+		customerName,
+		items,
+		fulfillment: readStringArg(args, 'fulfillment')
+	});
+}
+
 const TOOL_HANDLERS: Record<string, (args: Record<string, unknown>) => unknown> = {
 	search_menu: handleMenuTool,
 	get_menu: handleMenuTool,
 	menu: handleMenuTool,
 	check_order_status: handleOrderStatus,
 	cancel_order: handleCancelOrder,
+	create_order: handleCreateOrder,
 	check_subscription: handleSubscription,
 	validate_license: handleLicense,
 	account_status: handleAccountStatus,
@@ -170,6 +185,12 @@ function getDemoArgs(toolName: string) {
 			return { orderId: 'ORD-42' };
 		case 'cancel_order':
 			return { orderId: 'ORD-100', reason: 'Customer changed plans' };
+		case 'create_order':
+			return {
+				customerName: 'Jamie Lee',
+				items: 'Margherita (large), Garlic Bread (medium)',
+				fulfillment: 'collection'
+			};
 		case 'check_subscription':
 			return { email: 'demo@example.com' };
 		case 'validate_license':

@@ -358,6 +358,76 @@
         }
       ],
       "callLogSamplingRate": 100
+    },
+    {
+      "name": "create_order",
+      "kind": "action",
+      "description": "Place a new food order for collection or delivery. Use when the user clearly wants to order specific menu items and provides a customer name.",
+      "webhookUrl": "https://demo.thothsupport.dev/",
+      "enabled": false,
+      "parametersSchema": {
+        "parameters": [
+          {
+            "name": "customerName",
+            "type": "string",
+            "description": "Name for the order (e.g. Jamie Lee)",
+            "required": true
+          },
+          {
+            "name": "items",
+            "type": "string",
+            "description": "Comma-separated line items (e.g. Margherita (large), Garlic Bread (medium))",
+            "required": true
+          },
+          {
+            "name": "fulfillment",
+            "type": "string",
+            "description": "collection or delivery",
+            "required": false,
+            "enum": ["collection", "delivery"]
+          }
+        ]
+      },
+      "contextPolicy": {
+        "includeDiscordUserId": true,
+        "includeTicketId": true,
+        "includeChannelId": false,
+        "includeTicketSubject": false,
+        "includeTicketTags": false
+      },
+      "outboundHeaders": [],
+      "usageHint": "Call when the user wants to place a new order with specific items. Requires staff approval before the webhook runs on live tickets.",
+      "exampleResponse": {
+        "ok": true,
+        "found": true,
+        "orderId": "ORD-101",
+        "status": "received",
+        "customerName": "Jamie Lee",
+        "items": ["Margherita (large)", "Garlic Bread (medium)"],
+        "total": 15,
+        "fulfillment": "collection",
+        "estimatedReady": "2026-06-21T19:35:00Z",
+        "message": "Order ORD-101 created for collection."
+      },
+      "testFixtures": [
+        {
+          "name": "Collection order",
+          "arguments": {
+            "customerName": "Jamie Lee",
+            "items": "Margherita (large), Garlic Bread (medium)",
+            "fulfillment": "collection"
+          }
+        },
+        {
+          "name": "Delivery order",
+          "arguments": {
+            "customerName": "Alex Morgan",
+            "items": "Pepperoni (medium), Chunky Cajun Fries",
+            "fulfillment": "delivery"
+          }
+        }
+      ],
+      "callLogSamplingRate": 100
     }
   ]
 }

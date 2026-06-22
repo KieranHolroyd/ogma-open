@@ -71,6 +71,6 @@ Set `THOTH_SIGNING_SECRET` in the Vercel project environment.
 - REST routes for menu, orders, subscriptions, licenses, accounts, store
 - `POST /` — Thoth signed webhook (routes by `tool` name)
 
-The import bundle includes one **action** tool (`cancel_order`) that mutates demo order state — use it to test Thoth's staff approval flow. Read tools run immediately; action tools create a pending approval on live tickets.
+The import bundle includes two **action** tools (`create_order`, `cancel_order`) that mutate demo order state — use them to test Thoth's staff approval flow. Read tools run immediately; action tools create a pending approval on live tickets.
 
 Import `src/data/demo-custom-tools.json` in the dashboard to create all demo tools pointing at your deployed URL.

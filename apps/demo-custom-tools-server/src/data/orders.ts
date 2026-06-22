@@ -1,4 +1,5 @@
 import type { Order, OrderStatus } from '../types.js';
+import { STORE_INFO } from './store.js';
 
 export const ORDERS: Order[] = [
 	{
@@ -126,4 +127,65 @@ export function filterOrders(input: { status?: string; customer?: string }) {
 	}
 
 	return orders;
+}
+
+function nextOrderId() {
+	const highest = ORDERS.reduce((max, order) => {
+		const match = order.orderId.match(/^ORD-(\d+)$/i);
+		if (!match) {
+			return max;
+		}
+
+		return Math.max(max, Number.parseInt(match[1], 10));
+	}, 100);
+
+	return `ORD-${highest + 1}`;
+}
+
+export function createOrder(input: { customerName: string; items: string; fulfillment?: string }) {
+	const customerName = input.customerName.trim();
+	if (!customerName) {
+		return { ok: false as const, error: 'customerName is required' };
+	}
+
+	const itemLines = input.items
+		.split(',')
+		.map((line) => line.trim())
+		.filter(Boolean);
+	if (itemLines.length === 0) {
+		return { ok: false as const, error: 'items is required' };
+	}
+
+	const fulfillment =
+		input.fulfillment?.trim().toLowerCase() === 'delivery' ? 'delivery' : 'collection';
+	const placedAt = new Date();
+	const readyAt = new Date(
+		placedAt.getTime() + STORE_INFO.collectionTimeMinutes * 60 * 1000
+	);
+	const total = Math.round(itemLines.length * 7.5 * 100) / 100;
+	const order: Order = {
+		orderId: nextOrderId(),
+		status: 'received',
+		placedAt: placedAt.toISOString(),
+		customerName,
+		items: itemLines,
+		total,
+		fulfillment,
+		estimatedReady: readyAt.toISOString()
+	};
+
+	ORDERS.push(order);
+
+	return {
+		ok: true as const,
+		found: true,
+		orderId: order.orderId,
+		status: order.status,
+		customerName: order.customerName,
+		items: order.items,
+		total: order.total,
+		fulfillment: order.fulfillment,
+		estimatedReady: order.estimatedReady,
+		message: `Order ${order.orderId} created for ${fulfillment}.`
+	};
 }
