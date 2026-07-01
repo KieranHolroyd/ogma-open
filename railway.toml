@@ -1,7 +1,7 @@
 [build]
 builder = "RAILPACK"
 buildCommand = "pnpm demo:build"
-watchPatterns = ["apps/demo-custom-tools-server/**", "packages/webhook/**"]
+watchPatterns = ["apps/demo-agentic-tools-server/**", "packages/webhook/**"]
 
 [deploy]
 startCommand = "pnpm demo:start"

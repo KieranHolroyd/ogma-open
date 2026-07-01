@@ -1,13 +1,13 @@
 # Thoth Open Source
 
-Open-source SDK and reference implementations for [Thoth](https://thothsupport.dev) [custom tools](https://thothsupport.dev/docs/dashboard/custom-tools.html).
+Open-source SDK and reference implementations for [Thoth](https://thothsupport.dev) [agentic tools](https://thothsupport.dev/docs/dashboard/agentic-tools.html).
 
 **Repository:** [github.com/KieranHolroyd/thoth-open](https://github.com/KieranHolroyd/thoth-open)
 
 | Package | npm | Description |
 | --- | --- | --- |
 | `@thothsupport/webhook` | [npm](https://www.npmjs.com/package/@thothsupport/webhook) | Verify signed webhook requests from Thoth |
-| `@thothsupport/demo-custom-tools-server` | — | Mock webhook server and dashboard import bundle ([demo.thothsupport.dev](https://demo.thothsupport.dev/)) |
+| `@thothsupport/demo-agentic-tools-server` | — | Mock webhook server and dashboard import bundle ([demo.thothsupport.dev](https://demo.thothsupport.dev/)) |
 
 The main Thoth platform (bot, dashboard, API) lives in the private [`thoth`](https://github.com/KieranHolroyd/thoth) repository.
 
@@ -28,23 +28,23 @@ pnpm demo:dev
 
 ### `@thothsupport/webhook`
 
-Node.js helper for verifying HMAC-signed custom tool webhooks. See [`packages/webhook/README.md`](packages/webhook/README.md).
+Node.js helper for verifying HMAC-signed agentic tool webhooks. See [`packages/webhook/README.md`](packages/webhook/README.md).
 
 ```bash
 pnpm webhook:test
 pnpm webhook:build
 ```
 
-### Demo custom tools server
+### Demo agentic tools server
 
-Mock API backing [demo.thothsupport.dev](https://demo.thothsupport.dev/) — pizza menu, orders, subscriptions, licenses, accounts, and action tools (`create_order`, `cancel_order`) for testing staff approval. See [`apps/demo-custom-tools-server/README.md`](apps/demo-custom-tools-server/README.md).
+Mock API backing [demo.thothsupport.dev](https://demo.thothsupport.dev/) — pizza menu, orders, subscriptions, licenses, accounts, and action tools (`create_order`, `cancel_order`) for testing staff approval. See [`apps/demo-agentic-tools-server/README.md`](apps/demo-agentic-tools-server/README.md).
 
 ```bash
-cp apps/demo-custom-tools-server/.env.example apps/demo-custom-tools-server/.env
+cp apps/demo-agentic-tools-server/.env.example apps/demo-agentic-tools-server/.env
 pnpm demo:dev
 ```
 
-Import the bundle from `GET /demo-custom-tools.json` in the Thoth dashboard.
+Import the bundle from `GET /demo-agentic-tools.json` in the Thoth dashboard.
 
 ## Publishing `@thothsupport/webhook`
 

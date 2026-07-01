@@ -12,4 +12,4 @@ serve({
 	hostname: '0.0.0.0'
 });
 
-console.log(`demo-custom-tools-server listening on 0.0.0.0:${port}`);
+console.log(`demo-agentic-tools-server listening on 0.0.0.0:${port}`);

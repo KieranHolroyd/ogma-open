@@ -1,6 +1,6 @@
 # @thothsupport/webhook
 
-Verify signed webhook requests from [Thoth](https://thothsupport.dev) custom tools.
+Verify signed webhook requests from [Thoth](https://thothsupport.dev) agentic tools.
 
 Source: [thoth-open](https://github.com/KieranHolroyd/thoth-open) (`packages/webhook`)
 

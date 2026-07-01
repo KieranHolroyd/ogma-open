@@ -1,7 +1,7 @@
 {
   "name": "@thothsupport/webhook",
   "version": "0.1.0",
-  "description": "Verify signed webhook requests from Thoth custom tools",
+  "description": "Verify signed webhook requests from Thoth agentic tools",
   "type": "module",
   "license": "MIT",
   "repository": {

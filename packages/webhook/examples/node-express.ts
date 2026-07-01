@@ -1,5 +1,5 @@
 /**
- * Minimal Express webhook handler for Thoth custom tools.
+ * Minimal Express webhook handler for Thoth agentic tools.
  *
  *   npm install express @thothsupport/webhook
  *   THOTH_SIGNING_SECRET=your-secret npx tsx examples/node-express.ts

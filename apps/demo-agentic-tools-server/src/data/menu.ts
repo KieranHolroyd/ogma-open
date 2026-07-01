@@ -145,7 +145,7 @@ export const LIVE_CONFIG: LiveConfig[] = [
 	{
 		config_id: 'about_us_text',
 		config_string:
-			'Thoth Demo Pizzeria serves thin and crispy pizzas, pasta, sides, and desserts. This is mock menu data for testing Thoth custom tools. Call 01292 310297 for collection or delivery.'
+			'Thoth Demo Pizzeria serves thin and crispy pizzas, pasta, sides, and desserts. This is mock menu data for testing Thoth agentic tools. Call 01292 310297 for collection or delivery.'
 	}
 ];
 

@@ -1,6 +1,6 @@
-# Thoth demo custom tools server
+# Thoth demo agentic tools server
 
-Mock webhook API for Thoth custom tool demos ([demo.thothsupport.dev](https://demo.thothsupport.dev/)).
+Mock webhook API for Thoth agentic tool demos ([demo.thothsupport.dev](https://demo.thothsupport.dev/)).
 
 Part of the [thoth-open](https://github.com/KieranHolroyd/thoth-open) repository.
 
@@ -9,7 +9,7 @@ Part of the [thoth-open](https://github.com/KieranHolroyd/thoth-open) repository
 From the **repository root**:
 
 ```bash
-cp apps/demo-custom-tools-server/.env.example apps/demo-custom-tools-server/.env
+cp apps/demo-agentic-tools-server/.env.example apps/demo-agentic-tools-server/.env
 pnpm demo:dev
 ```
 
@@ -28,8 +28,8 @@ Use **one** of these setups:
 
 | Setting | Value |
 | --- | --- |
-| **Root Directory** | `apps/demo-custom-tools-server` |
-| **Config file path** | `apps/demo-custom-tools-server/railway.toml` |
+| **Root Directory** | `apps/demo-agentic-tools-server` |
+| **Config file path** | `apps/demo-agentic-tools-server/railway.toml` |
 
 The demo app depends on `@thothsupport/webhook` from npm, so it does not need the monorepo workspace at deploy time.
 
@@ -47,7 +47,7 @@ Set `THOTH_SIGNING_SECRET` in the service environment. Railway health-checks `GE
 From the repository root:
 
 ```bash
-docker build -f apps/demo-custom-tools-server/docker/Dockerfile .
+docker build -f apps/demo-agentic-tools-server/docker/Dockerfile .
 ```
 
 ## Deploy on Vercel
@@ -56,7 +56,7 @@ Create a Vercel project with:
 
 | Setting | Value |
 | --- | --- |
-| Root Directory | `apps/demo-custom-tools-server` |
+| Root Directory | `apps/demo-agentic-tools-server` |
 | Include source files outside Root Directory | **enabled** |
 
 Set `THOTH_SIGNING_SECRET` in the Vercel project environment.
@@ -67,11 +67,11 @@ Set `THOTH_SIGNING_SECRET` in the Vercel project environment.
 
 - `GET /health`
 - `GET /demo` — tool index
-- `GET /demo-custom-tools.json` — dashboard import bundle
+- `GET /demo-agentic-tools.json` — dashboard import bundle
 - REST routes for menu, orders, subscriptions, licenses, accounts, store
 - `POST /` — Thoth signed webhook (routes by `tool` name)
 - `POST /FINI50` — Thoth signed webhook for the 50% off promo demo tool
 
 The import bundle includes two **action** tools (`create_order`, `cancel_order`) that mutate demo order state — use them to test Thoth's staff approval flow. Read tools run immediately; action tools create a pending approval on live tickets.
 
-Import `src/data/demo-custom-tools.json` in the dashboard to create all demo tools pointing at your deployed URL.
+Import `src/data/demo-agentic-tools.json` in the dashboard to create all demo tools pointing at your deployed URL.

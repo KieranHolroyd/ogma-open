@@ -1,6 +1,6 @@
 {
-  "name": "@thothsupport/demo-custom-tools-server",
-  "description": "Mock API with pizza menu, orders, subscriptions, licenses, and account data for Thoth custom tool demos",
+  "name": "@thothsupport/demo-agentic-tools-server",
+  "description": "Mock API with pizza menu, orders, subscriptions, licenses, and account data for Thoth agentic tool demos",
   "private": true,
   "type": "module",
   "packageManager": "pnpm@10.15.0",

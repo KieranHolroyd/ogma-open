@@ -1,5 +1,5 @@
 import { Hono } from "hono";
-import demoCustomTools from "./data/demo-custom-tools.json" with { type: "json" };
+import demoAgenticTools from "./data/demo-agentic-tools.json" with { type: "json" };
 import { findAccount } from "./data/accounts.js";
 import { findLicense } from "./data/licenses.js";
 import {
@@ -22,7 +22,7 @@ export const app = new Hono();
 app.get("/health", (c) =>
   c.json({
     status: "ok",
-    service: "demo-custom-tools-server",
+    service: "demo-agentic-tools-server",
     datasets: [
       "menu",
       "orders",
@@ -50,7 +50,7 @@ app.post("/FINI50", async (c) => {
 
 app.get("/demo", (c) =>
   c.json({
-    description: "Mock data API for Thoth custom tool demos.",
+    description: "Mock data API for Thoth agentic tool demos.",
     tools: listDemoTools(),
     endpoints: [
       "POST /FINI50",
@@ -65,12 +65,12 @@ app.get("/demo", (c) =>
       "GET /store",
       "POST / (Thoth webhook)",
     ],
-    importBundle: "/demo-custom-tools.json",
+    importBundle: "/demo-agentic-tools.json",
     ts: Date.now(),
   }),
 );
 
-app.get("/demo-custom-tools.json", (c) => c.json(demoCustomTools));
+app.get("/demo-agentic-tools.json", (c) => c.json(demoAgenticTools));
 
 app.get("/menu", (c) => {
   const category = c.req.query("category");
