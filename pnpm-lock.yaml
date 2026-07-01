@@ -18,7 +18,7 @@ importers:
         specifier: 7.0.1-rc
         version: 7.0.1-rc
 
-  apps/demo-custom-tools-server:
+  apps/demo-agentic-tools-server:
     dependencies:
       '@hono/node-server':
         specifier: ^2.0.5
