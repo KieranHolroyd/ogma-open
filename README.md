@@ -6,8 +6,8 @@ Open-source SDK and reference implementations for [Ogma](https://ogma.gg) [agent
 
 | Package | npm | Description |
 | --- | --- | --- |
-| `@ogma/webhook` | [npm](https://www.npmjs.com/package/@ogma/webhook) | Verify signed webhook requests from Ogma |
-| `@ogma/demo-agentic-tools-server` | — | Mock webhook server and dashboard import bundle ([demo.ogma.gg](https://demo.ogma.gg/)) |
+| `@ogmasupport/webhook` | [npm](https://www.npmjs.com/package/@ogmasupport/webhook) | Verify signed webhook requests from Ogma |
+| `@ogmasupport/demo-agentic-tools-server` | — | Mock webhook server and dashboard import bundle ([demo.ogma.gg](https://demo.ogma.gg/)) |
 
 The main Ogma platform (bot, dashboard, API) lives in the private [`ogma`](https://github.com/KieranHolroyd/ogma) repository.
 
@@ -26,7 +26,7 @@ pnpm demo:dev
 
 ## Packages
 
-### `@ogma/webhook`
+### `@ogmasupport/webhook`
 
 Node.js helper for verifying HMAC-signed agentic tool webhooks. See [`packages/webhook/README.md`](packages/webhook/README.md).
 
@@ -46,7 +46,7 @@ pnpm demo:dev
 
 Import the bundle from `GET /demo-agentic-tools.json` in the Ogma dashboard.
 
-## Publishing `@ogma/webhook`
+## Publishing `@ogmasupport/webhook`
 
 See [`packages/webhook/README.md`](packages/webhook/README.md#publishing-maintainers). Releases are tagged `webhook-v*` and published to npm via GitHub Actions trusted publishing.
 

@@ -23,7 +23,7 @@ importers:
       '@hono/node-server':
         specifier: ^2.0.5
         version: 2.0.5(hono@4.12.26)
-      '@ogma/webhook':
+      '@ogmasupport/webhook':
         specifier: workspace:^0.1.0
         version: link:../../packages/webhook
       dotenv:

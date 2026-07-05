@@ -1,12 +1,12 @@
 /**
  * Minimal Express webhook handler for Ogma agentic tools.
  *
- *   npm install express @ogma/webhook
+ *   npm install express @ogmasupport/webhook
  *   OGMA_SIGNING_SECRET=your-secret npx tsx examples/node-express.ts
  */
 import express from 'express';
 
-import { verifyOgmaWebhook, type OgmaWebhookPayload } from '@ogma/webhook';
+import { verifyOgmaWebhook, type OgmaWebhookPayload } from '@ogmasupport/webhook';
 
 const secret = process.env.OGMA_SIGNING_SECRET;
 if (!secret) {

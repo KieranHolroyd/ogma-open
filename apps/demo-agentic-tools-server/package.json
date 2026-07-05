@@ -1,5 +1,5 @@
 {
-  "name": "@ogma/demo-agentic-tools-server",
+  "name": "@ogmasupport/demo-agentic-tools-server",
   "description": "Mock API with pizza menu, orders, subscriptions, licenses, and account data for Ogma agentic tool demos",
   "private": true,
   "type": "module",
@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@hono/node-server": "^2.0.5",
-    "@ogma/webhook": "workspace:^0.1.0",
+    "@ogmasupport/webhook": "workspace:^0.1.0",
     "dotenv": "^16.5.0",
     "hono": "^4.12.25"
   },

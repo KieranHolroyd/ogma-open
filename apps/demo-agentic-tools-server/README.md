@@ -31,7 +31,7 @@ Use **one** of these setups:
 | **Root Directory** | `apps/demo-agentic-tools-server` |
 | **Config file path** | `apps/demo-agentic-tools-server/railway.toml` |
 
-The demo app depends on `@ogma/webhook` from npm, so it does not need the monorepo workspace at deploy time.
+The demo app depends on `@ogmasupport/webhook` from npm, so it does not need the monorepo workspace at deploy time.
 
 ### Option B — repository root
 
@@ -61,7 +61,7 @@ Create a Vercel project with:
 
 Set `OGMA_SIGNING_SECRET` in the Vercel project environment.
 
-`vercel.json` installs and builds from the monorepo root so the demo app can depend on `@ogma/webhook`.
+`vercel.json` installs and builds from the monorepo root so the demo app can depend on `@ogmasupport/webhook`.
 
 ## Endpoints
 

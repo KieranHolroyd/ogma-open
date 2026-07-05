@@ -1,16 +1,16 @@
 {
-  "name": "@ogma/open",
+  "name": "@ogmasupport/open",
   "private": true,
   "description": "Open-source SDK and demos for Ogma agentic tools",
   "packageManager": "pnpm@10.15.0",
   "scripts": {
     "build": "pnpm -r build",
-    "test": "pnpm --filter @ogma/webhook test",
-    "webhook:build": "pnpm --filter @ogma/webhook build",
-    "webhook:test": "pnpm --filter @ogma/webhook test",
-    "demo:dev": "pnpm --filter @ogma/demo-agentic-tools-server dev",
-    "demo:build": "pnpm webhook:build && pnpm --filter @ogma/demo-agentic-tools-server build",
-    "demo:start": "pnpm --filter @ogma/demo-agentic-tools-server start"
+    "test": "pnpm --filter @ogmasupport/webhook test",
+    "webhook:build": "pnpm --filter @ogmasupport/webhook build",
+    "webhook:test": "pnpm --filter @ogmasupport/webhook test",
+    "demo:dev": "pnpm --filter @ogmasupport/demo-agentic-tools-server dev",
+    "demo:build": "pnpm webhook:build && pnpm --filter @ogmasupport/demo-agentic-tools-server build",
+    "demo:start": "pnpm --filter @ogmasupport/demo-agentic-tools-server start"
   },
   "devDependencies": {
     "typescript": "7.0.1-rc"

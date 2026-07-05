@@ -29,7 +29,7 @@ COPY package.json pnpm-workspace.yaml pnpm-lock.yaml ./
 COPY packages/webhook/package.json packages/webhook/
 COPY apps/demo-agentic-tools-server/package.json apps/demo-agentic-tools-server/
 
-RUN pnpm install --frozen-lockfile --prod --filter @ogma/demo-agentic-tools-server...
+RUN pnpm install --frozen-lockfile --prod --filter @ogmasupport/demo-agentic-tools-server...
 
 COPY --from=builder /app/packages/webhook/dist packages/webhook/dist
 COPY --from=builder /app/apps/demo-agentic-tools-server/dist apps/demo-agentic-tools-server/dist

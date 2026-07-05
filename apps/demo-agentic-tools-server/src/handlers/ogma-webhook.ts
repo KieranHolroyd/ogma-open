@@ -1,5 +1,5 @@
 import type { Context } from 'hono';
-import { verifyOgmaWebhook, type OgmaWebhookPayload } from '@ogma/webhook';
+import { verifyOgmaWebhook, type OgmaWebhookPayload } from '@ogmasupport/webhook';
 
 type VerifyFailure = {
 	ok: false;

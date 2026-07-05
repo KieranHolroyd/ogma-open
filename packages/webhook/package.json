@@ -1,5 +1,5 @@
 {
-  "name": "@ogma/webhook",
+  "name": "@ogmasupport/webhook",
   "version": "0.1.0",
   "description": "Verify signed webhook requests from Ogma agentic tools",
   "type": "module",

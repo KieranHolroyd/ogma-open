@@ -4,7 +4,7 @@ import { buildMenuResponse, filterMenuItems, MENU_ITEMS } from '../data/menu.js'
 import { cancelOrder, createOrder, findOrder } from '../data/orders.js';
 import { FINI50_PROMO, PROMOTIONS, STORE_INFO } from '../data/store.js';
 import { findSubscription } from '../data/subscriptions.js';
-import type { OgmaWebhookPayload } from '@ogma/webhook';
+import type { OgmaWebhookPayload } from '@ogmasupport/webhook';
 
 function readStringArg(args: Record<string, unknown>, key: string) {
 	const value = args[key];

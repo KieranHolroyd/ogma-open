@@ -1,4 +1,4 @@
-name: Publish @ogma/webhook
+name: Publish @ogmasupport/webhook
 
 on:
   push:

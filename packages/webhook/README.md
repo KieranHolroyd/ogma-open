@@ -1,4 +1,4 @@
-# @ogma/webhook
+# @ogmasupport/webhook
 
 Verify signed webhook requests from [Ogma](https://ogma.gg) agentic tools.
 
@@ -7,13 +7,13 @@ Source: [ogma-open](https://github.com/KieranHolroyd/ogma-open) (`packages/webho
 ## Install
 
 ```bash
-npm install @ogma/webhook
+npm install @ogmasupport/webhook
 ```
 
 In this monorepo:
 
 ```bash
-pnpm add @ogma/webhook --workspace
+pnpm add @ogmasupport/webhook --workspace
 ```
 
 ## Usage
@@ -21,7 +21,7 @@ pnpm add @ogma/webhook --workspace
 Ogma signs each webhook with HMAC-SHA256 over `timestamp + "." + raw JSON body`. Verify the signature before handling the request.
 
 ```typescript
-import { verifyOgmaWebhook, type OgmaWebhookPayload } from '@ogma/webhook';
+import { verifyOgmaWebhook, type OgmaWebhookPayload } from '@ogmasupport/webhook';
 
 const secret = process.env.OGMA_SIGNING_SECRET!;
 
@@ -73,8 +73,8 @@ This package is published to npm via **trusted publishing** (OIDC) — no long-l
 
 ### One-time npm setup
 
-1. Sign in at [npmjs.com](https://www.npmjs.com/) and ensure the `@ogma` scope exists (create an npm org if needed).
-2. Open **@ogma/webhook** → **Settings** → **Publishing access** → **Add GitHub Actions trusted publisher**:
+1. Sign in at [npmjs.com](https://www.npmjs.com/) and ensure the `@ogmasupport` scope exists (create an npm org if needed).
+2. Open **@ogmasupport/webhook** → **Settings** → **Publishing access** → **Add GitHub Actions trusted publisher**:
    - **Organization or user:** `KieranHolroyd`
    - **Repository:** `ogma-open`
    - **Workflow filename:** `publish-webhook.yml`
