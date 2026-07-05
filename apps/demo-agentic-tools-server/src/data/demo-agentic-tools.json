@@ -5,7 +5,7 @@
     {
       "name": "search_menu",
       "description": "Search the pizzeria menu by item name, category, or item ID. Use when the user asks about prices, ingredients, specials, or what is available to order.",
-      "webhookUrl": "https://demo.thothsupport.dev/",
+      "webhookUrl": "https://demo.ogma.gg/",
       "enabled": false,
       "parametersSchema": {
         "parameters": [
@@ -75,7 +75,7 @@
     {
       "name": "check_order_status",
       "description": "Look up the current status of a customer order by order ID. Use when the user asks about shipping, delivery, collection, or order progress.",
-      "webhookUrl": "https://demo.thothsupport.dev/",
+      "webhookUrl": "https://demo.ogma.gg/",
       "enabled": false,
       "parametersSchema": {
         "parameters": [
@@ -123,7 +123,7 @@
     {
       "name": "check_subscription",
       "description": "Look up subscription status and billing details for a customer by email address. Use when the user asks about renewals, cancellations, trials, or plan access.",
-      "webhookUrl": "https://demo.thothsupport.dev/",
+      "webhookUrl": "https://demo.ogma.gg/",
       "enabled": false,
       "parametersSchema": {
         "parameters": [
@@ -171,7 +171,7 @@
     {
       "name": "validate_license",
       "description": "Verify whether a license key is valid and return activation or expiry details. Use when the user provides a license or product key.",
-      "webhookUrl": "https://demo.thothsupport.dev/",
+      "webhookUrl": "https://demo.ogma.gg/",
       "enabled": false,
       "parametersSchema": {
         "parameters": [
@@ -194,9 +194,9 @@
       "usageHint": "Call when the user provides a license key or asks whether a key is valid or expired.",
       "exampleResponse": {
         "found": true,
-        "licenseKey": "THOTH-DEMO-2026",
+        "licenseKey": "OGMA-DEMO-2026",
         "valid": true,
-        "product": "Thoth Pro",
+        "product": "Ogma Pro",
         "expiresAt": "2027-01-01",
         "seats": 5,
         "activatedDevices": 2
@@ -205,13 +205,13 @@
         {
           "name": "Valid license",
           "arguments": {
-            "licenseKey": "THOTH-DEMO-2026"
+            "licenseKey": "OGMA-DEMO-2026"
           }
         },
         {
           "name": "Expired license",
           "arguments": {
-            "licenseKey": "THOTH-EXPIRED"
+            "licenseKey": "OGMA-EXPIRED"
           }
         }
       ],
@@ -220,7 +220,7 @@
     {
       "name": "account_status",
       "description": "Look up account standing, suspension state, or access level by username. Use when the user asks whether their account is active, banned, or restricted.",
-      "webhookUrl": "https://demo.thothsupport.dev/",
+      "webhookUrl": "https://demo.ogma.gg/",
       "enabled": false,
       "parametersSchema": {
         "parameters": [
@@ -267,7 +267,7 @@
     {
       "name": "get_store_info",
       "description": "Return store hours, delivery zones, contact details, and current promotions. Use when the user asks when the restaurant is open, where it delivers, or about deals.",
-      "webhookUrl": "https://demo.thothsupport.dev/",
+      "webhookUrl": "https://demo.ogma.gg/",
       "enabled": false,
       "parametersSchema": {
         "parameters": []
@@ -283,7 +283,7 @@
       "usageHint": "Call when the user asks about opening hours, delivery areas, phone number, address, or promotions.",
       "exampleResponse": {
         "store": {
-          "name": "Thoth Demo Pizzeria",
+          "name": "Ogma Demo Pizzeria",
           "phone": "01292 310297",
           "address": "42 High Street, Ayr, KA7 1LU",
           "collectionTimeMinutes": 20
@@ -307,7 +307,7 @@
       "name": "cancel_order",
       "kind": "action",
       "description": "Cancel a customer order by order ID. Use when the user explicitly asks to cancel an order that has not been delivered yet.",
-      "webhookUrl": "https://demo.thothsupport.dev/",
+      "webhookUrl": "https://demo.ogma.gg/",
       "enabled": false,
       "parametersSchema": {
         "parameters": [
@@ -363,7 +363,7 @@
       "name": "create_order",
       "kind": "action",
       "description": "Place a new food order for collection or delivery. Use when the user clearly wants to order specific menu items and provides a customer name.",
-      "webhookUrl": "https://demo.thothsupport.dev/",
+      "webhookUrl": "https://demo.ogma.gg/",
       "enabled": false,
       "parametersSchema": {
         "parameters": [
@@ -432,7 +432,7 @@
     {
       "name": "get_fini50_promo",
       "description": "Return the current 50% off promo code. Use when the user asks about a 50% discount, half-price deal, or promo code for 50% off.",
-      "webhookUrl": "https://demo.thothsupport.dev/FINI50",
+      "webhookUrl": "https://demo.ogma.gg/FINI50",
       "enabled": false,
       "parametersSchema": {
         "parameters": []

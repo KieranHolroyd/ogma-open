@@ -1,37 +1,37 @@
-# @thothsupport/webhook
+# @ogma/webhook
 
-Verify signed webhook requests from [Thoth](https://thothsupport.dev) agentic tools.
+Verify signed webhook requests from [Ogma](https://ogma.gg) agentic tools.
 
-Source: [thoth-open](https://github.com/KieranHolroyd/thoth-open) (`packages/webhook`)
+Source: [ogma-open](https://github.com/KieranHolroyd/ogma-open) (`packages/webhook`)
 
 ## Install
 
 ```bash
-npm install @thothsupport/webhook
+npm install @ogma/webhook
 ```
 
 In this monorepo:
 
 ```bash
-pnpm add @thothsupport/webhook --workspace
+pnpm add @ogma/webhook --workspace
 ```
 
 ## Usage
 
-Thoth signs each webhook with HMAC-SHA256 over `timestamp + "." + raw JSON body`. Verify the signature before handling the request.
+Ogma signs each webhook with HMAC-SHA256 over `timestamp + "." + raw JSON body`. Verify the signature before handling the request.
 
 ```typescript
-import { verifyThothWebhook, type ThothWebhookPayload } from '@thothsupport/webhook';
+import { verifyOgmaWebhook, type OgmaWebhookPayload } from '@ogma/webhook';
 
-const secret = process.env.THOTH_SIGNING_SECRET!;
+const secret = process.env.OGMA_SIGNING_SECRET!;
 
 export async function handleWebhook(request: Request): Promise<Response> {
 	const rawBody = await request.text();
-	const signature = request.headers.get('X-Thoth-Signature') ?? undefined;
+	const signature = request.headers.get('X-Ogma-Signature') ?? undefined;
 	const authorization = request.headers.get('Authorization') ?? undefined;
 
 	if (
-		!verifyThothWebhook({
+		!verifyOgmaWebhook({
 			rawBody,
 			signatureHeader: signature,
 			authorizationHeader: authorization,
@@ -41,7 +41,7 @@ export async function handleWebhook(request: Request): Promise<Response> {
 		return Response.json({ error: 'Invalid signature' }, { status: 401 });
 	}
 
-	const payload = JSON.parse(rawBody) as ThothWebhookPayload;
+	const payload = JSON.parse(rawBody) as OgmaWebhookPayload;
 	// Look up data and return JSON
 	return Response.json({ status: 'ok', tool: payload.tool });
 }
@@ -54,9 +54,9 @@ Use the **raw request body string** when verifying. Do not re-serialize parsed J
 | Option | Required | Description |
 | --- | --- | --- |
 | `rawBody` | yes | Raw request body string |
-| `signatureHeader` | yes | Value of `X-Thoth-Signature` |
+| `signatureHeader` | yes | Value of `X-Ogma-Signature` |
 | `authorizationHeader` | no | Value of `Authorization`; bearer token must match `secret` when present |
-| `secret` | yes | Signing secret from the Thoth dashboard |
+| `secret` | yes | Signing secret from the Ogma dashboard |
 | `maxAgeSeconds` | no | Max age for timestamp (default: 300) |
 
 ## Examples
@@ -73,10 +73,10 @@ This package is published to npm via **trusted publishing** (OIDC) — no long-l
 
 ### One-time npm setup
 
-1. Sign in at [npmjs.com](https://www.npmjs.com/) and ensure the `@thothsupport` scope exists (create an npm org if needed).
-2. Open **@thothsupport/webhook** → **Settings** → **Publishing access** → **Add GitHub Actions trusted publisher**:
+1. Sign in at [npmjs.com](https://www.npmjs.com/) and ensure the `@ogma` scope exists (create an npm org if needed).
+2. Open **@ogma/webhook** → **Settings** → **Publishing access** → **Add GitHub Actions trusted publisher**:
    - **Organization or user:** `KieranHolroyd`
-   - **Repository:** `thoth-open`
+   - **Repository:** `ogma-open`
    - **Workflow filename:** `publish-webhook.yml`
    - **Environment:** leave empty
 3. Save. npm will accept publishes only from that workflow on this repo.

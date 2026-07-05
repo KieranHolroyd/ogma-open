@@ -1,18 +1,18 @@
 {
-  "name": "@thothsupport/webhook",
+  "name": "@ogma/webhook",
   "version": "0.1.0",
-  "description": "Verify signed webhook requests from Thoth agentic tools",
+  "description": "Verify signed webhook requests from Ogma agentic tools",
   "type": "module",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/KieranHolroyd/thoth-open.git",
+    "url": "git+https://github.com/KieranHolroyd/ogma-open.git",
     "directory": "packages/webhook"
   },
   "bugs": {
-    "url": "https://github.com/KieranHolroyd/thoth-open/issues"
+    "url": "https://github.com/KieranHolroyd/ogma-open/issues"
   },
-  "homepage": "https://github.com/KieranHolroyd/thoth-open/tree/main/packages/webhook#readme",
+  "homepage": "https://github.com/KieranHolroyd/ogma-open/tree/main/packages/webhook#readme",
   "engines": {
     "node": ">=20"
   },

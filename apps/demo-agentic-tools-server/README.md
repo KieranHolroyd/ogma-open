@@ -1,8 +1,8 @@
-# Thoth demo agentic tools server
+# Ogma demo agentic tools server
 
-Mock webhook API for Thoth agentic tool demos ([demo.thothsupport.dev](https://demo.thothsupport.dev/)).
+Mock webhook API for Ogma agentic tool demos ([demo.ogma.gg](https://demo.ogma.gg/)).
 
-Part of the [thoth-open](https://github.com/KieranHolroyd/thoth-open) repository.
+Part of the [ogma-open](https://github.com/KieranHolroyd/ogma-open) repository.
 
 ## Local development
 
@@ -31,7 +31,7 @@ Use **one** of these setups:
 | **Root Directory** | `apps/demo-agentic-tools-server` |
 | **Config file path** | `apps/demo-agentic-tools-server/railway.toml` |
 
-The demo app depends on `@thothsupport/webhook` from npm, so it does not need the monorepo workspace at deploy time.
+The demo app depends on `@ogma/webhook` from npm, so it does not need the monorepo workspace at deploy time.
 
 ### Option B — repository root
 
@@ -40,7 +40,7 @@ The demo app depends on `@thothsupport/webhook` from npm, so it does not need th
 | **Root Directory** | `.` |
 | **Config file path** | `railway.toml` |
 
-Set `THOTH_SIGNING_SECRET` in the service environment. Railway health-checks `GET /health`.
+Set `OGMA_SIGNING_SECRET` in the service environment. Railway health-checks `GET /health`.
 
 ### Optional: Docker (local)
 
@@ -59,9 +59,9 @@ Create a Vercel project with:
 | Root Directory | `apps/demo-agentic-tools-server` |
 | Include source files outside Root Directory | **enabled** |
 
-Set `THOTH_SIGNING_SECRET` in the Vercel project environment.
+Set `OGMA_SIGNING_SECRET` in the Vercel project environment.
 
-`vercel.json` installs and builds from the monorepo root so the demo app can depend on `@thothsupport/webhook`.
+`vercel.json` installs and builds from the monorepo root so the demo app can depend on `@ogma/webhook`.
 
 ## Endpoints
 
@@ -69,9 +69,9 @@ Set `THOTH_SIGNING_SECRET` in the Vercel project environment.
 - `GET /demo` — tool index
 - `GET /demo-agentic-tools.json` — dashboard import bundle
 - REST routes for menu, orders, subscriptions, licenses, accounts, store
-- `POST /` — Thoth signed webhook (routes by `tool` name)
-- `POST /FINI50` — Thoth signed webhook for the 50% off promo demo tool
+- `POST /` — Ogma signed webhook (routes by `tool` name)
+- `POST /FINI50` — Ogma signed webhook for the 50% off promo demo tool
 
-The import bundle includes two **action** tools (`create_order`, `cancel_order`) that mutate demo order state — use them to test Thoth's staff approval flow. Read tools run immediately; action tools create a pending approval on live tickets.
+The import bundle includes two **action** tools (`create_order`, `cancel_order`) that mutate demo order state — use them to test Ogma's staff approval flow. Read tools run immediately; action tools create a pending approval on live tickets.
 
 Import `src/data/demo-agentic-tools.json` in the dashboard to create all demo tools pointing at your deployed URL.

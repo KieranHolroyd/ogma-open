@@ -1,6 +1,6 @@
 {
-  "name": "@thothsupport/demo-agentic-tools-server",
-  "description": "Mock API with pizza menu, orders, subscriptions, licenses, and account data for Thoth agentic tool demos",
+  "name": "@ogma/demo-agentic-tools-server",
+  "description": "Mock API with pizza menu, orders, subscriptions, licenses, and account data for Ogma agentic tool demos",
   "private": true,
   "type": "module",
   "packageManager": "pnpm@10.15.0",
@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@hono/node-server": "^2.0.5",
-    "@thothsupport/webhook": "^0.1.0",
+    "@ogma/webhook": "workspace:^0.1.0",
     "dotenv": "^16.5.0",
     "hono": "^4.12.25"
   },

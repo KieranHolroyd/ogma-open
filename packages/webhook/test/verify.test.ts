@@ -2,7 +2,7 @@ import { createHmac } from 'node:crypto';
 import assert from 'node:assert/strict';
 import { describe, it } from 'node:test';
 
-import { verifyThothWebhook } from '../src/verify.js';
+import { verifyOgmaWebhook } from '../src/verify.js';
 
 const SECRET = 'test-signing-secret';
 
@@ -11,7 +11,7 @@ function sign(timestamp: number, body: string): string {
 	return `t=${timestamp},v1=${signature}`;
 }
 
-describe('verifyThothWebhook', () => {
+describe('verifyOgmaWebhook', () => {
 	const body = JSON.stringify({
 		tool: 'check_order',
 		guildId: '123',
@@ -21,7 +21,7 @@ describe('verifyThothWebhook', () => {
 
 	it('accepts a valid signature', () => {
 		const timestamp = Math.floor(Date.now() / 1000);
-		const ok = verifyThothWebhook({
+		const ok = verifyOgmaWebhook({
 			rawBody: body,
 			signatureHeader: sign(timestamp, body),
 			authorizationHeader: `Bearer ${SECRET}`,
@@ -32,7 +32,7 @@ describe('verifyThothWebhook', () => {
 
 	it('accepts a valid signature without Authorization header', () => {
 		const timestamp = Math.floor(Date.now() / 1000);
-		const ok = verifyThothWebhook({
+		const ok = verifyOgmaWebhook({
 			rawBody: body,
 			signatureHeader: sign(timestamp, body),
 			secret: SECRET
@@ -42,7 +42,7 @@ describe('verifyThothWebhook', () => {
 
 	it('rejects a mismatched bearer token', () => {
 		const timestamp = Math.floor(Date.now() / 1000);
-		const ok = verifyThothWebhook({
+		const ok = verifyOgmaWebhook({
 			rawBody: body,
 			signatureHeader: sign(timestamp, body),
 			authorizationHeader: 'Bearer wrong-secret',
@@ -53,7 +53,7 @@ describe('verifyThothWebhook', () => {
 
 	it('rejects an invalid signature', () => {
 		const timestamp = Math.floor(Date.now() / 1000);
-		const ok = verifyThothWebhook({
+		const ok = verifyOgmaWebhook({
 			rawBody: body,
 			signatureHeader: `t=${timestamp},v1=${'0'.repeat(64)}`,
 			secret: SECRET
@@ -62,7 +62,7 @@ describe('verifyThothWebhook', () => {
 	});
 
 	it('rejects a malformed signature header', () => {
-		const ok = verifyThothWebhook({
+		const ok = verifyOgmaWebhook({
 			rawBody: body,
 			signatureHeader: 'invalid',
 			secret: SECRET
@@ -72,7 +72,7 @@ describe('verifyThothWebhook', () => {
 
 	it('rejects an expired timestamp', () => {
 		const timestamp = Math.floor(Date.now() / 1000) - 600;
-		const ok = verifyThothWebhook({
+		const ok = verifyOgmaWebhook({
 			rawBody: body,
 			signatureHeader: sign(timestamp, body),
 			secret: SECRET,
@@ -83,7 +83,7 @@ describe('verifyThothWebhook', () => {
 
 	it('rejects when secret is empty', () => {
 		const timestamp = Math.floor(Date.now() / 1000);
-		const ok = verifyThothWebhook({
+		const ok = verifyOgmaWebhook({
 			rawBody: body,
 			signatureHeader: sign(timestamp, body),
 			secret: ''

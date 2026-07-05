@@ -1,3 +1,3 @@
-export type { CustomToolWebhookPayload, ThothWebhookPayload } from './types.js';
-export type { VerifyThothWebhookOptions } from './verify.js';
-export { verifyThothWebhook } from './verify.js';
+export type { CustomToolWebhookPayload, OgmaWebhookPayload } from './types.js';
+export type { VerifyOgmaWebhookOptions } from './verify.js';
+export { verifyOgmaWebhook } from './verify.js';

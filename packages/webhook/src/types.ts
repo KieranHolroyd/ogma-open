@@ -1,4 +1,4 @@
-export type ThothWebhookPayload = {
+export type OgmaWebhookPayload = {
 	tool: string;
 	guildId: string;
 	ticketId?: number;
@@ -8,5 +8,5 @@ export type ThothWebhookPayload = {
 	timestamp: number;
 };
 
-/** @deprecated Use {@link ThothWebhookPayload} */
-export type CustomToolWebhookPayload = ThothWebhookPayload;
+/** @deprecated Use {@link OgmaWebhookPayload} */
+export type CustomToolWebhookPayload = OgmaWebhookPayload;

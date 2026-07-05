@@ -2,33 +2,33 @@ import type { License } from '../types.js';
 
 export const LICENSES: License[] = [
 	{
-		licenseKey: 'THOTH-DEMO-2026',
+		licenseKey: 'OGMA-DEMO-2026',
 		valid: true,
-		product: 'Thoth Pro',
+		product: 'Ogma Pro',
 		expiresAt: '2027-01-01',
 		seats: 5,
 		activatedDevices: 2
 	},
 	{
-		licenseKey: 'THOTH-TEAM-ENTERPRISE',
+		licenseKey: 'OGMA-TEAM-ENTERPRISE',
 		valid: true,
-		product: 'Thoth Enterprise',
+		product: 'Ogma Enterprise',
 		expiresAt: '2028-06-01',
 		seats: 25,
 		activatedDevices: 18
 	},
 	{
-		licenseKey: 'THOTH-EXPIRED',
+		licenseKey: 'OGMA-EXPIRED',
 		valid: false,
-		product: 'Thoth Pro',
+		product: 'Ogma Pro',
 		expiresAt: '2025-01-01',
 		seats: 1,
 		reason: 'License expired on 2025-01-01.'
 	},
 	{
-		licenseKey: 'THOTH-REVOKED',
+		licenseKey: 'OGMA-REVOKED',
 		valid: false,
-		product: 'Thoth Pro',
+		product: 'Ogma Pro',
 		expiresAt: '2027-06-01',
 		seats: 1,
 		reason: 'License was revoked after a chargeback.'

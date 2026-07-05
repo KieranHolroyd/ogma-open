@@ -1,5 +1,5 @@
 import type { Context } from 'hono';
-import { verifyThothWebhook, type ThothWebhookPayload } from '@thothsupport/webhook';
+import { verifyOgmaWebhook, type OgmaWebhookPayload } from '@ogma/webhook';
 
 type VerifyFailure = {
 	ok: false;
@@ -9,23 +9,23 @@ type VerifyFailure = {
 
 type VerifySuccess = {
 	ok: true;
-	payload: ThothWebhookPayload;
+	payload: OgmaWebhookPayload;
 };
 
-export type VerifiedThothWebhook = VerifySuccess | VerifyFailure;
+export type VerifiedOgmaWebhook = VerifySuccess | VerifyFailure;
 
-export async function readVerifiedThothWebhook(c: Context): Promise<VerifiedThothWebhook> {
+export async function readVerifiedOgmaWebhook(c: Context): Promise<VerifiedOgmaWebhook> {
 	const rawBody = await c.req.text();
-	const signature = c.req.header('X-Thoth-Signature');
+	const signature = c.req.header('X-Ogma-Signature');
 	const authorization = c.req.header('Authorization');
-	const secret = process.env.THOTH_SIGNING_SECRET;
+	const secret = process.env.OGMA_SIGNING_SECRET;
 
 	if (!secret) {
-		return { ok: false, status: 500, error: 'THOTH_SIGNING_SECRET is not configured' };
+		return { ok: false, status: 500, error: 'OGMA_SIGNING_SECRET is not configured' };
 	}
 
 	if (
-		!verifyThothWebhook({
+		!verifyOgmaWebhook({
 			rawBody,
 			signatureHeader: signature,
 			authorizationHeader: authorization,
@@ -36,7 +36,7 @@ export async function readVerifiedThothWebhook(c: Context): Promise<VerifiedThot
 	}
 
 	try {
-		return { ok: true, payload: JSON.parse(rawBody) as ThothWebhookPayload };
+		return { ok: true, payload: JSON.parse(rawBody) as OgmaWebhookPayload };
 	} catch {
 		return { ok: false, status: 400, error: 'Invalid JSON body' };
 	}

@@ -1,16 +1,16 @@
 /**
- * Minimal Express webhook handler for Thoth agentic tools.
+ * Minimal Express webhook handler for Ogma agentic tools.
  *
- *   npm install express @thothsupport/webhook
- *   THOTH_SIGNING_SECRET=your-secret npx tsx examples/node-express.ts
+ *   npm install express @ogma/webhook
+ *   OGMA_SIGNING_SECRET=your-secret npx tsx examples/node-express.ts
  */
 import express from 'express';
 
-import { verifyThothWebhook, type ThothWebhookPayload } from '@thothsupport/webhook';
+import { verifyOgmaWebhook, type OgmaWebhookPayload } from '@ogma/webhook';
 
-const secret = process.env.THOTH_SIGNING_SECRET;
+const secret = process.env.OGMA_SIGNING_SECRET;
 if (!secret) {
-	throw new Error('THOTH_SIGNING_SECRET is required');
+	throw new Error('OGMA_SIGNING_SECRET is required');
 }
 
 const app = express();
@@ -20,11 +20,11 @@ app.post(
 	express.raw({ type: 'application/json' }),
 	(req, res) => {
 		const rawBody = req.body.toString('utf8');
-		const signature = req.header('X-Thoth-Signature');
+		const signature = req.header('X-Ogma-Signature');
 		const authorization = req.header('Authorization');
 
 		if (
-			!verifyThothWebhook({
+			!verifyOgmaWebhook({
 				rawBody,
 				signatureHeader: signature,
 				authorizationHeader: authorization,
@@ -35,7 +35,7 @@ app.post(
 			return;
 		}
 
-		const payload = JSON.parse(rawBody) as ThothWebhookPayload;
+		const payload = JSON.parse(rawBody) as OgmaWebhookPayload;
 		res.json({
 			tool: payload.tool,
 			orderId: payload.arguments.orderId,

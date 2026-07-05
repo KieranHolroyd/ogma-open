@@ -13,9 +13,9 @@ import { PROMOTIONS, STORE_INFO } from "./data/store.js";
 import { findSubscription } from "./data/subscriptions.js";
 import { handleToolRequest, listDemoTools } from "./handlers/tool-responses.js";
 import {
-  readVerifiedThothWebhook,
+  readVerifiedOgmaWebhook,
   verifiedWebhookErrorResponse,
-} from "./handlers/thoth-webhook.js";
+} from "./handlers/ogma-webhook.js";
 
 export const app = new Hono();
 
@@ -35,7 +35,7 @@ app.get("/health", (c) =>
 );
 
 app.post("/FINI50", async (c) => {
-  const verified = await readVerifiedThothWebhook(c);
+  const verified = await readVerifiedOgmaWebhook(c);
   if (!verified.ok) {
     return verifiedWebhookErrorResponse(c, verified);
   }
@@ -50,7 +50,7 @@ app.post("/FINI50", async (c) => {
 
 app.get("/demo", (c) =>
   c.json({
-    description: "Mock data API for Thoth agentic tool demos.",
+    description: "Mock data API for Ogma agentic tool demos.",
     tools: listDemoTools(),
     endpoints: [
       "POST /FINI50",
@@ -63,7 +63,7 @@ app.get("/demo", (c) =>
       "GET /licenses/:licenseKey",
       "GET /accounts/:username",
       "GET /store",
-      "POST / (Thoth webhook)",
+      "POST / (Ogma webhook)",
     ],
     importBundle: "/demo-agentic-tools.json",
     ts: Date.now(),
@@ -175,7 +175,7 @@ app.get("/store", (c) =>
 );
 
 app.post("/", async (c) => {
-  const verified = await readVerifiedThothWebhook(c);
+  const verified = await readVerifiedOgmaWebhook(c);
   if (!verified.ok) {
     return verifiedWebhookErrorResponse(c, verified);
   }

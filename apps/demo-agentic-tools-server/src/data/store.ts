@@ -1,7 +1,7 @@
 import type { StoreInfo } from '../types.js';
 
 export const STORE_INFO: StoreInfo = {
-	name: 'Thoth Demo Pizzeria',
+	name: 'Ogma Demo Pizzeria',
 	tagline: 'Thin, crispy, and demo-ready.',
 	address: '42 High Street, Ayr, KA7 1LU',
 	phone: '01292 310297',

@@ -2,7 +2,7 @@ import { createHmac, timingSafeEqual } from 'node:crypto';
 
 const DEFAULT_MAX_AGE_SECONDS = 300;
 
-export type VerifyThothWebhookOptions = {
+export type VerifyOgmaWebhookOptions = {
 	rawBody: string;
 	signatureHeader: string | undefined;
 	authorizationHeader?: string | undefined;
@@ -10,7 +10,7 @@ export type VerifyThothWebhookOptions = {
 	maxAgeSeconds?: number;
 };
 
-export function verifyThothWebhook(options: VerifyThothWebhookOptions): boolean {
+export function verifyOgmaWebhook(options: VerifyOgmaWebhookOptions): boolean {
 	const {
 		rawBody,
 		signatureHeader,

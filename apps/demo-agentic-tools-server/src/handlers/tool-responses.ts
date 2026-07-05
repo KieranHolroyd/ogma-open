@@ -4,7 +4,7 @@ import { buildMenuResponse, filterMenuItems, MENU_ITEMS } from '../data/menu.js'
 import { cancelOrder, createOrder, findOrder } from '../data/orders.js';
 import { FINI50_PROMO, PROMOTIONS, STORE_INFO } from '../data/store.js';
 import { findSubscription } from '../data/subscriptions.js';
-import type { ThothWebhookPayload } from '@thothsupport/webhook';
+import type { OgmaWebhookPayload } from '@ogma/webhook';
 
 function readStringArg(args: Record<string, unknown>, key: string) {
 	const value = args[key];
@@ -89,7 +89,7 @@ function handleLicense(args: Record<string, unknown>) {
 			found: false,
 			valid: false,
 			message:
-				'License key not recognized. Demo keys include THOTH-DEMO-2026 and THOTH-EXPIRED.'
+				'License key not recognized. Demo keys include OGMA-DEMO-2026 and OGMA-EXPIRED.'
 		};
 	}
 
@@ -167,7 +167,7 @@ const TOOL_HANDLERS: Record<string, (args: Record<string, unknown>) => unknown> 
 	fini50: () => handleFini50Promo()
 };
 
-export function handleToolRequest(payload: ThothWebhookPayload) {
+export function handleToolRequest(payload: OgmaWebhookPayload) {
 	const handler = TOOL_HANDLERS[payload.tool] ?? handleMenuTool;
 	const result = handler(payload.arguments);
 
@@ -200,7 +200,7 @@ function getDemoArgs(toolName: string) {
 		case 'check_subscription':
 			return { email: 'demo@example.com' };
 		case 'validate_license':
-			return { licenseKey: 'THOTH-DEMO-2026' };
+			return { licenseKey: 'OGMA-DEMO-2026' };
 		case 'account_status':
 			return { username: 'player123' };
 		case 'get_store_info':
