@@ -24,8 +24,8 @@ importers:
         specifier: ^2.0.5
         version: 2.0.5(hono@4.12.26)
       '@ogmasupport/webhook':
-        specifier: workspace:^0.1.0
-        version: link:../../packages/webhook
+        specifier: ^0.1.0
+        version: 0.1.0
       dotenv:
         specifier: ^16.5.0
         version: 16.6.1
@@ -218,6 +218,10 @@ packages:
     engines: {node: '>=20'}
     peerDependencies:
       hono: ^4
+
+  '@ogmasupport/webhook@0.1.0':
+    resolution: {integrity: sha512-xLPskGlySt7rd7dLGJO/pBiba1KLzvnVT/eyzQq0X+rNhGR9+SB9ncWLh/K+z1bzoPgvRIo3N8kiIt+vZvuPAg==}
+    engines: {node: '>=20'}
 
   '@types/node@22.20.0':
     resolution: {integrity: sha512-QWlFW2wf3nTjC13/DqRnBpR4ZO36VJH/JVBkA/vcnmbTBNQIlnObqyqZE1tUR7+Ni23Lda8R1BxMfbXRpCUx5g==}
@@ -456,6 +460,8 @@ snapshots:
   '@hono/node-server@2.0.5(hono@4.12.26)':
     dependencies:
       hono: 4.12.26
+
+  '@ogmasupport/webhook@0.1.0': {}
 
   '@types/node@22.20.0':
     dependencies:
