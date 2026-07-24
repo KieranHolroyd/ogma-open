@@ -22,7 +22,7 @@ importers:
     dependencies:
       '@hono/node-server':
         specifier: ^2.0.5
-        version: 2.0.5(hono@4.12.26)
+        version: 2.0.5(hono@4.12.27)
       '@ogmasupport/webhook':
         specifier: ^0.1.0
         version: 0.1.0
@@ -30,8 +30,8 @@ importers:
         specifier: ^16.5.0
         version: 16.6.1
       hono:
-        specifier: ^4.12.25
-        version: 4.12.26
+        specifier: ^4.12.27
+        version: 4.12.27
     devDependencies:
       '@types/node':
         specifier: ^22.15.0
@@ -360,8 +360,8 @@ packages:
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
 
-  hono@4.12.26:
-    resolution: {integrity: sha512-uyZtpnYxM9CmQ7QsQknM4zN8EftNqhON1qYeIKM0Se67CCEe2c44xyGURwB0axX2fBDu1dqHrHAc1hmNT8ITkw==}
+  hono@4.12.27:
+    resolution: {integrity: sha512-1yrb/+w6HWQJrUCLkJ2IF5jNIPvvFkblV5RNOYl6bV+OA6p9GLcMpHFFGTosSvHvcAUibuUukRqhlYI4z32C7Q==}
     engines: {node: '>=16.9.0'}
 
   tsx@4.22.4:
@@ -457,9 +457,9 @@ snapshots:
   '@esbuild/win32-x64@0.28.1':
     optional: true
 
-  '@hono/node-server@2.0.5(hono@4.12.26)':
+  '@hono/node-server@2.0.5(hono@4.12.27)':
     dependencies:
-      hono: 4.12.26
+      hono: 4.12.27
 
   '@ogmasupport/webhook@0.1.0': {}
 
@@ -561,7 +561,7 @@ snapshots:
   fsevents@2.3.3:
     optional: true
 
-  hono@4.12.26: {}
+  hono@4.12.27: {}
 
   tsx@4.22.4:
     dependencies:
